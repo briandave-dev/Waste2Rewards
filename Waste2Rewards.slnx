@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Waste2Rewards.ServiceDefaults/Waste2Rewards.ServiceDefaults.csproj" />
+  <Project Path="Waste2Rewards/Waste2Rewards.csproj">
+    <Deploy />
+  </Project>
+</Solution>
