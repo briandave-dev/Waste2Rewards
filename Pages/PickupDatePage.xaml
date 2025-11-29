@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Waste2Rewards.Pages.PickupDatePage"
+             BackgroundColor="White"
+             Title="Choose Type Date">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- Header with back button -->
+        <HorizontalStackLayout Grid.Row="0" Padding="20" Spacing="15">
+            <ImageButton Source="back_arrow.png"
+                         HeightRequest="24"
+                         WidthRequest="24"
+                         Clicked="OnBackClicked"
+                         BackgroundColor="Transparent"/>
+            <Label Text="Choose Type Date"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="#323232"
+                   VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <!-- Frequency Options -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+                <!-- Week Option -->
+                <Frame BackgroundColor="White"
+                       BorderColor="#E0E0E0"
+                       CornerRadius="10"
+                       Padding="20"
+                       HasShadow="False">
+                    <VerticalStackLayout Spacing="10">
+                        <HorizontalStackLayout Spacing="10">
+                            <RadioButton x:Name="WeekRadio"
+                                         GroupName="Frequency"
+                                         Value="once"
+                                         CheckedChanged="OnFrequencySelected"/>
+                            <Label Text="Week"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="#323232"
+                                   VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+
+                        <VerticalStackLayout x:Name="WeekDateSection" 
+                                             Spacing="8"
+                                             IsVisible="False">
+                            <Label Text="Start date"
+                                   FontSize="14"
+                                   TextColor="#666666"/>
+                            <Frame BackgroundColor="#F5F5F5"
+                                   CornerRadius="8"
+                                   Padding="12"
+                                   HasShadow="False">
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="📅" FontSize="18"/>
+                                    <DatePicker x:Name="WeekDatePicker"
+                                                Format="dd/MM/yyyy"
+                                                TextColor="#323232"
+                                                BackgroundColor="Transparent"/>
+                                </HorizontalStackLayout>
+                            </Frame>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Month Option -->
+                <Frame BackgroundColor="White"
+                       BorderColor="#E0E0E0"
+                       CornerRadius="10"
+                       Padding="20"
+                       HasShadow="False">
+                    <VerticalStackLayout Spacing="10">
+                        <HorizontalStackLayout Spacing="10">
+                            <RadioButton x:Name="MonthRadio"
+                                         GroupName="Frequency"
+                                         Value="weekly"
+                                         CheckedChanged="OnFrequencySelected"/>
+                            <Label Text="Month"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="#323232"
+                                   VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+
+                        <VerticalStackLayout x:Name="MonthDateSection" 
+                                             Spacing="8"
+                                             IsVisible="False">
+                            <Label Text="Start date"
+                                   FontSize="14"
+                                   TextColor="#666666"/>
+                            <Frame BackgroundColor="#F5F5F5"
+                                   CornerRadius="8"
+                                   Padding="12"
+                                   HasShadow="False">
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="📅" FontSize="18"/>
+                                    <DatePicker x:Name="MonthDatePicker"
+                                                Format="dd/MM/yyyy"
+                                                TextColor="#323232"
+                                                BackgroundColor="Transparent"/>
+                                </HorizontalStackLayout>
+                            </Frame>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Each 3 Month Option -->
+                <Frame BackgroundColor="White"
+                       BorderColor="#E0E0E0"
+                       CornerRadius="10"
+                       Padding="20"
+                       HasShadow="False">
+                    <VerticalStackLayout Spacing="10">
+                        <HorizontalStackLayout Spacing="10">
+                            <RadioButton x:Name="ThreeMonthRadio"
+                                         GroupName="Frequency"
+                                         Value="fortnightly"
+                                         CheckedChanged="OnFrequencySelected"/>
+                            <Label Text="Each 3 Month"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="#323232"
+                                   VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+
+                        <VerticalStackLayout x:Name="ThreeMonthDateSection" 
+                                             Spacing="8"
+                                             IsVisible="False">
+                            <Label Text="Start date"
+                                   FontSize="14"
+                                   TextColor="#666666"/>
+                            <Frame BackgroundColor="#F5F5F5"
+                                   CornerRadius="8"
+                                   Padding="12"
+                                   HasShadow="False">
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="📅" FontSize="18"/>
+                                    <DatePicker x:Name="ThreeMonthDatePicker"
+                                                Format="dd/MM/yyyy"
+                                                TextColor="#323232"
+                                                BackgroundColor="Transparent"/>
+                                </HorizontalStackLayout>
+                            </Frame>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Apply Button -->
+        <Button x:Name="ApplyButton"
+                Grid.Row="2"
+                Text="Apply"
+                BackgroundColor="#FF7200"
+                TextColor="White"
+                FontSize="16"
+                FontAttributes="Bold"
+                CornerRadius="25"
+                HeightRequest="50"
+                Margin="20"
+                Clicked="OnApplyClicked"/>
+
+    </Grid>
+
+</ContentPage>

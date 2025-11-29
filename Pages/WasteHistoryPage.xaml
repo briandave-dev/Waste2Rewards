@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Waste2Rewards.Pages.WasteHistoryPage"
+             BackgroundColor="#3A3A3A"
+             Title="Total Summary">
+
+    <Grid RowDefinitions="Auto,Auto,*">
+
+        <!-- Header -->
+        <HorizontalStackLayout Grid.Row="0" Padding="20,40,20,20" Spacing="15">
+            <ImageButton Source="back_arrow.png"
+                         HeightRequest="24"
+                         WidthRequest="24"
+                         Clicked="OnBackClicked"
+                         BackgroundColor="Transparent"/>
+            <Label Text="Total Summary"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <!-- Tabs -->
+        <HorizontalStackLayout Grid.Row="1" Padding="20,0" Spacing="10">
+            <Frame BackgroundColor="#FF7200"
+                   CornerRadius="20"
+                   Padding="20,10"
+                   HasShadow="False">
+                <Label Text="Summary"
+                       TextColor="White"
+                       FontSize="14"
+                       FontAttributes="Bold"/>
+            </Frame>
+
+            <Frame BackgroundColor="White"
+                   CornerRadius="20"
+                   Padding="20,10"
+                   HasShadow="False">
+                <Label Text="Contest Result"
+                       TextColor="#323232"
+                       FontSize="14"/>
+            </Frame>
+        </HorizontalStackLayout>
+
+        <!-- Content -->
+        <ScrollView Grid.Row="2">
+            <VerticalStackLayout Spacing="0">
+
+                <!-- Chart Area (Mock) -->
+                <VerticalStackLayout Padding="20" Spacing="15">
+                    <Frame BackgroundColor="#4A4A4A"
+                           CornerRadius="10"
+                           Padding="20"
+                           HasShadow="False"
+                           HeightRequest="200">
+                        <Label Text="📊 Chart Area"
+                               TextColor="#999999"
+                               FontSize="14"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                    </Frame>
+
+                    <!-- Days Row -->
+                    <Grid ColumnDefinitions="*,*,*,*,*,*,*" 
+                          ColumnSpacing="5"
+                          Margin="0,10,0,0">
+                        <Frame Grid.Column="0" 
+                               BackgroundColor="#FF7200"
+                               CornerRadius="15"
+                               Padding="10,8"
+                               HasShadow="False">
+                            <VerticalStackLayout Spacing="2">
+                                <Label Text="Today"
+                                       TextColor="White"
+                                       FontSize="10"
+                                       HorizontalOptions="Center"/>
+                                <Label Text="21"
+                                       TextColor="White"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                        <Label Grid.Column="1" Text="Tue 22" FontSize="10" TextColor="#999999" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Label Grid.Column="2" Text="Wed 23" FontSize="10" TextColor="#999999" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Label Grid.Column="3" Text="Thu 24" FontSize="10" TextColor="#999999" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Label Grid.Column="4" Text="Fri 25" FontSize="10" TextColor="#999999" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Label Grid.Column="5" Text="Sat 26" FontSize="10" TextColor="#999999" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Label Grid.Column="6" Text="Sun 27" FontSize="10" TextColor="#999999" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <!-- White Section -->
+                <VerticalStackLayout BackgroundColor="White" 
+                                     Padding="20"
+                                     Spacing="20">
+
+                    <!-- Stats Row -->
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+                        <VerticalStackLayout Grid.Column="0" Spacing="5">
+                            <Label Text="Total Waste"
+                                   FontSize="12"
+                                   TextColor="#999999"/>
+                            <Label x:Name="TotalWasteLabel"
+                                   Text="20"
+                                   FontSize="32"
+                                   FontAttributes="Bold"
+                                   TextColor="#323232"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="Total Coin Reward"
+                                   FontSize="12"
+                                   TextColor="#999999"/>
+                            <Label x:Name="TotalRewardLabel"
+                                   Text="20"
+                                   FontSize="32"
+                                   FontAttributes="Bold"
+                                   TextColor="#323232"/>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <!-- Waste List -->
+                    <VerticalStackLayout x:Name="WasteList" Spacing="15"/>
+
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>

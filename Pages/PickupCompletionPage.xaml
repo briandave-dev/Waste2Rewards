@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Waste2Rewards.Pages.PickupCompletionPage"
+             BackgroundColor="White"
+             Title="Waste & get Point">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- Header with back button -->
+        <HorizontalStackLayout Grid.Row="0" Padding="20" Spacing="15">
+            <ImageButton Source="back_arrow.png"
+                         HeightRequest="24"
+                         WidthRequest="24"
+                         Clicked="OnBackClicked"
+                         BackgroundColor="Transparent"/>
+            <Label Text="Waste &amp; get Point"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="#323232"
+                   VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <!-- Content -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+                <!-- Snap Picture Section -->
+                <VerticalStackLayout Spacing="10">
+                    <HorizontalStackLayout Spacing="5">
+                        <Label Text="Snap Picture"
+                               FontSize="16"
+                               TextColor="#323232"/>
+                        <Label Text="ℹ️"
+                               FontSize="14"
+                               TextColor="#666666"/>
+                    </HorizontalStackLayout>
+
+                    <Frame BackgroundColor="#F5F5F5"
+                           CornerRadius="10"
+                           Padding="40"
+                           HasShadow="False"
+                           HeightRequest="150">
+                        <VerticalStackLayout VerticalOptions="Center" 
+                                             HorizontalOptions="Center"
+                                             Spacing="10">
+                            <Image x:Name="PreviewImage"
+                                   IsVisible="False"
+                                   Aspect="AspectFill"
+                                   HeightRequest="120"
+                                   WidthRequest="200"/>
+                            <Label x:Name="CameraIcon"
+                                   Text="📷"
+                                   FontSize="48"
+                                   HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSnapPictureTapped"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </VerticalStackLayout>
+
+                <!-- Type Section -->
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Type"
+                           FontSize="16"
+                           TextColor="#323232"/>
+
+                    <Frame BackgroundColor="White"
+                           BorderColor="#E0E0E0"
+                           CornerRadius="10"
+                           Padding="15"
+                           HasShadow="False">
+                        <Picker x:Name="WasteTypePicker"
+                                Title="Select waste type"
+                                TextColor="#323232">
+                            <Picker.Items>
+                                <x:String>Electrical Waste</x:String>
+                                <x:String>Carbon Emission</x:String>
+                                <x:String>Home Waste</x:String>
+                                <x:String>Plastic Waste</x:String>
+                                <x:String>Metal Waste</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </Frame>
+                </VerticalStackLayout>
+
+                <!-- Description Section -->
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Description (optional)"
+                           FontSize="16"
+                           TextColor="#323232"/>
+
+                    <Frame BackgroundColor="White"
+                           BorderColor="#E0E0E0"
+                           CornerRadius="10"
+                           Padding="15"
+                           HasShadow="False">
+                        <Editor x:Name="DescriptionEditor"
+                                Placeholder="Add description..."
+                                PlaceholderColor="#999999"
+                                TextColor="#323232"
+                                HeightRequest="120"
+                                AutoSize="TextChanges"/>
+                    </Frame>
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Submit Button -->
+        <Button Grid.Row="2"
+                Text="Submit"
+                BackgroundColor="#323232"
+                TextColor="White"
+                FontSize="16"
+                FontAttributes="Bold"
+                CornerRadius="8"
+                HeightRequest="50"
+                Margin="20"
+                Clicked="OnSubmitClicked"/>
+
+    </Grid>
+
+</ContentPage>

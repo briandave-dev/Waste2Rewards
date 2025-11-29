@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Waste2Rewards.Pages.HomePage"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Margin="20,60,20,20" Spacing="20">
+
+            <!-- Header -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Hi, Mr Lee!"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       TextColor="#323232"/>
+
+                <Label Text="December 10, 2020"
+                       FontSize="14"
+                       TextColor="#999999"/>
+            </VerticalStackLayout>
+
+            <!-- My Services Section -->
+            <VerticalStackLayout Spacing="15" Margin="0,20,0,0">
+                <Label Text="My Services"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="#323232"/>
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+                    <!-- Property Information Card -->
+                    <Frame Grid.Column="0" 
+                           BackgroundColor="#F5F5F5"
+                           CornerRadius="10"
+                           Padding="15"
+                           HasShadow="False">
+                        <VerticalStackLayout Spacing="10">
+                            <Image Source="property_icon.png" 
+                                   HeightRequest="40"
+                                   WidthRequest="40"/>
+                            <Label Text="Property Information"
+                                   FontSize="12"
+                                   TextColor="#323232"
+                                   FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- Waste & Get Point Card -->
+                    <Frame Grid.Column="1" 
+                           BackgroundColor="#F5F5F5"
+                           CornerRadius="10"
+                           Padding="15"
+                           HasShadow="False">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="⭐" FontSize="30"/>
+                            <Label Text="Waste &amp; get Point"
+                                   FontSize="12"
+                                   TextColor="#323232"
+                                   FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnRequestWastePickupClicked"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </Grid>
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+                    <!-- Feedback Card -->
+                    <Frame Grid.Column="0" 
+                           BackgroundColor="#F5F5F5"
+                           CornerRadius="10"
+                           Padding="15"
+                           HasShadow="False">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="📝" FontSize="30"/>
+                            <Label Text="Feedback"
+                                   FontSize="12"
+                                   TextColor="#323232"
+                                   FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </Grid>
+            </VerticalStackLayout>
+
+            <!-- Bottom Section -->
+            <VerticalStackLayout Spacing="15" Margin="0,20,0,0">
+                <Frame BackgroundColor="#F5F5F5"
+                       CornerRadius="10"
+                       Padding="20"
+                       HasShadow="False">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Environmental Interests"
+                               FontSize="14"
+                               FontAttributes="Bold"
+                               TextColor="#323232"/>
+                        <Label Text="Learn about sustainability"
+                               FontSize="12"
+                               TextColor="#666666"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame BackgroundColor="#2D5016"
+                       CornerRadius="10"
+                       Padding="20"
+                       HasShadow="False">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="GREEN &amp; SUSTAINABILITY"
+                               FontSize="14"
+                               FontAttributes="Bold"
+                               TextColor="White"/>
+                        <Label Text="Green House"
+                               FontSize="12"
+                               TextColor="White"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

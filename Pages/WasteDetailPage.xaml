@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Waste2Rewards.Pages.WasteDetailPage"
+             BackgroundColor="White"
+             Title="Waste Details">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- Header with back button -->
+        <HorizontalStackLayout Grid.Row="0" Padding="20" Spacing="15">
+            <ImageButton Source="back_arrow.png"
+                         HeightRequest="24"
+                         WidthRequest="24"
+                         Clicked="OnBackClicked"
+                         BackgroundColor="Transparent"/>
+            <Label Text="Waste Details"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="#323232"
+                   VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <!-- Content -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+                <!-- Image -->
+                <Frame BackgroundColor="#F5F5F5"
+                       CornerRadius="10"
+                       Padding="0"
+                       HasShadow="False"
+                       HeightRequest="200">
+                    <Label x:Name="ImagePlaceholder"
+                           Text="📷"
+                           FontSize="48"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="#CCCCCC"/>
+                </Frame>
+
+                <!-- Details -->
+                <VerticalStackLayout Spacing="15">
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Waste Type"
+                               FontSize="12"
+                               TextColor="#999999"/>
+                        <Label x:Name="WasteTypeLabel"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               TextColor="#323232"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Pickup Type"
+                               FontSize="12"
+                               TextColor="#999999"/>
+                        <Label x:Name="PickupTypeLabel"
+                               FontSize="16"
+                               TextColor="#323232"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Area"
+                               FontSize="12"
+                               TextColor="#999999"/>
+                        <Label x:Name="AreaLabel"
+                               FontSize="16"
+                               TextColor="#323232"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Address"
+                               FontSize="12"
+                               TextColor="#999999"/>
+                        <Label x:Name="AddressLabel"
+                               FontSize="16"
+                               TextColor="#323232"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Frequency"
+                               FontSize="12"
+                               TextColor="#999999"/>
+                        <Label x:Name="FrequencyLabel"
+                               FontSize="16"
+                               TextColor="#323232"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Date"
+                               FontSize="12"
+                               TextColor="#999999"/>
+                        <Label x:Name="DateLabel"
+                               FontSize="16"
+                               TextColor="#323232"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Description"
+                               FontSize="12"
+                               TextColor="#999999"/>
+                        <Label x:Name="DescriptionLabel"
+                               FontSize="16"
+                               TextColor="#323232"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Status"
+                               FontSize="12"
+                               TextColor="#999999"/>
+                        <Label x:Name="StatusLabel"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               TextColor="#FF7200"/>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Cancel Button (visible only if status is requested) -->
+        <Button x:Name="CancelButton"
+                Grid.Row="2"
+                Text="Cancel Request"
+                BackgroundColor="#DC3545"
+                TextColor="White"
+                FontSize="16"
+                FontAttributes="Bold"
+                CornerRadius="8"
+                HeightRequest="50"
+                Margin="20"
+                Clicked="OnCancelClicked"
+                IsVisible="False"/>
+
+    </Grid>
+
+</ContentPage>

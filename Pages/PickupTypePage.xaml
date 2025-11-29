@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Waste2Rewards.Pages.PickupTypePage"
+             BackgroundColor="White"
+             Title="Kind of works">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- Header with back button -->
+        <HorizontalStackLayout Grid.Row="0" Padding="20" Spacing="15">
+            <ImageButton Source="back_arrow.png"
+                         HeightRequest="24"
+                         WidthRequest="24"
+                         Clicked="OnBackClicked"
+                         BackgroundColor="Transparent"/>
+            <Label Text="Kind of works"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="#323232"
+                   VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <!-- Content -->
+        <VerticalStackLayout Grid.Row="1" Padding="20" Spacing="20">
+
+            <!-- Normal Pickup -->
+            <Frame BackgroundColor="White"
+                   BorderColor="#E0E0E0"
+                   CornerRadius="10"
+                   Padding="20"
+                   HasShadow="False">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Normal"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#323232"/>
+                    <Label Text="Employees can work as usual"
+                           FontSize="14"
+                           TextColor="#999999"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnNormalPickupTapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- Pickup with Cleaning -->
+            <Frame BackgroundColor="White"
+                   BorderColor="#E0E0E0"
+                   CornerRadius="10"
+                   Padding="20"
+                   HasShadow="False">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Schedule"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#323232"/>
+                    <Label Text="Employees can work in set schedule"
+                           FontSize="14"
+                           TextColor="#999999"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSchedulePickupTapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+        </VerticalStackLayout>
+
+    </Grid>
+
+</ContentPage>
