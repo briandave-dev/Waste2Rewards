@@ -72,5 +72,50 @@
 		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.10" />
 		<PackageReference Include="Syncfusion.Maui.Toolkit" Version="1.0.6" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Pages\HomePage.xaml.cs">
+	    <DependentUpon>HomePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\OtpPage.xaml.cs">
+	    <DependentUpon>OtpPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\WelcomePage.xaml.cs">
+	    <DependentUpon>WelcomePage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Pages\HomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\OtpPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\PickupAreaPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\PickupCompletionPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\PickupDatePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\PickupTypePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\ProfilePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\WasteDetailPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\WasteHistoryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\WelcomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
 	
 </Project>

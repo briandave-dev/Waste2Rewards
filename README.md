@@ -1,211 +1,266 @@
-# **Waste2Rewards – Application Mobile .NET MAUI**
+# Waste2Rewards
 
-Une application mobile moderne destinée aux habitants de **Douala-Bonaberi**, permettant de **vendre des déchets recyclables** ou de **commander un ramassage**, tout en proposant une interface fluide et intuitive développée en **.NET MAUI**.
+Une application mobile .NET MAUI pour la gestion des demandes de collecte de déchets avec un système de récompenses.
 
-## **Présentation du projet**
+## Aperçu
 
-Waste2Rewards est une application hybride développée avec **.NET MAUI**, mettant l’accent sur :
+Waste2Rewards est une application mobile multi-pages qui permet aux utilisateurs de demander des collectes de déchets, suivre leur historique de gestion des déchets et gagner des récompenses. L'application offre une interface claire et intuitive avec un flux de travail complet depuis la soumission de la demande jusqu'au suivi.
 
-* Une **expérience utilisateur fluide**
-* Des **interfaces modernes et eco**
-* Une **architecture propre et modulaire (MVVM)**
-* Des fonctionnalités orientées vers la **collecte et la valorisation des déchets recyclables**
-* Des paiements sécurisés via **Flutterwave**
-* Une compatibilité multiplateforme : **Android, iOS et Windows**
+## Fonctionnalités
 
-## **Structure du projet**
+- Flux de demande de collecte de déchets en plusieurs étapes
+- Planification de collecte par zone
+- Options de fréquence flexibles (hebdomadaire, mensuelle, trimestrielle)
+- Catégorisation des types de déchets
+- Suivi de l'historique des demandes
+- Système de récompenses intégré
+- Annulation des demandes en attente
+- Capture d'image pour documentation des déchets
 
-Le projet respecte une architecture claire basée sur le pattern **MVVM (Model – ViewModel – View)**.
+## Technologies Utilisées
 
+- .NET MAUI
+- C# 11
+- Pattern MVVM
+- Injection de Dépendances
+- Navigation Shell
+
+## Structure du Projet
+
+```
 Waste2Rewards/
-│
 ├── Models/
-│   ├── User.cs
-│   ├── PickupRequest.cs
-│   ├── WasteSale.cs
-│   └── ApiResponse.cs
-│
-├── ViewModels/
-│   ├── LoginViewModel.cs
-│   ├── RegisterViewModel.cs
-│   ├── HomeViewModel.cs
-│   ├── PickupViewModel.cs
-│   ├── SellViewModel.cs
-│   ├── HistoryViewModel.cs
-│   └── ProfileViewModel.cs
-│
-├── Views/
-│   ├── LoginPage.xaml
-│   ├── RegisterPage.xaml
-│   ├── HomePage.xaml
-│   ├── PickupPage.xaml
-│   ├── SellPage.xaml
-│   ├── HistoryPage.xaml
-│   └── ProfilePage.xaml
-│
+│   └── WastePickup.cs
 ├── Services/
-│   ├── ApiService.cs
-│   ├── AuthService.cs
-│   ├── PaymentService.cs
-│   └── LocationService.cs
-│
-├── Helpers/
-│   ├── Constants.cs
-│   ├── Converters/
-│   └── Validators/
-│
-├── Resources/
-│   ├── Images/
-│   │   ├── logo.png
-│   │   └── icons/...
-│   ├── Fonts/
-│   │   ├── Montserrat-Regular.ttf
-│   │   └── Montserrat-Bold.ttf
-│   └── Styles/
-│       ├── Colors.xaml
-│       └── Styles.xaml
-│
-├── Platforms/
-│   ├── Android/
-│   ├── iOS/
-│   └── Windows/
-│
-├── App.xaml
+│   └── WastePickupService.cs
+├── Pages/
+│   ├── HomePage.xaml
+│   ├── PickupTypePage.xaml
+│   ├── PickupAreaPage.xaml
+│   ├── PickupDatePage.xaml
+│   ├── PickupCompletionPage.xaml
+│   ├── WasteHistoryPage.xaml
+│   ├── WasteDetailPage.xaml
+│   └── ProfilePage.xaml
 ├── AppShell.xaml
-├── MauiProgram.cs
-└── README.md
-
-## **Fonctionnalités principales**
-
-### 1. **Authentification**
-
-* Inscription & Connexion
-* Gestion du profil utilisateur
-* Stockage local sécurisé
-
-### 2. **Demande de ramassage**
-
-* Choix du type :
-
-  * Instantané
-  * Hebdomadaire
-  * Bi-hebdomadaire
-  * Mensuel
-* Interface intuitive pour sélectionner la date/heure
-* Paiement Flutterwave intégré
-
-### 3. **Vente de déchets recyclables**
-
-* Saisie du poids en kilogrammes
-* Calcul automatique du montant
-* Confirmation et suivi
-
-### 4. **Historique des opérations**
-
-* Visualisation des demandes précédentes
-* Filtrage des opérations (vente / ramassage)
-
-### 5. **Paiements (Flutterwave)**
-
-* Redirection vers l’interface sécurisée Flutterwave
-* Gestion retour succès/erreur
-
----
-
-## **Architecture technique**
-
-### **Pattern utilisé : MVVM**
-
-* **Models** → Représentation des données
-* **ViewModels** → Logique métier + Binding
-* **Views** → Interfaces XAML
-
-### **Technologies**
-
-| Technologie     | Rôle                         |
-| --------------- | ---------------------------- |
-| .NET MAUI       | Développement cross-platform |
-| C#              | Langage principal            |
-| MVVM            | Architecture                 |
-| MySQL           | Base de données backend      |
-| PHP MVC         | Backend API                  |
-| Flutterwave     | Paiements                    |
-| Google Maps API | Localisation (optionnel)     |
-
----
-
-## **Installation et lancement du projet**
-
-### **Prérequis**
-
-* .NET SDK 8.0+
-* Visual Studio 2022 (workload MAUI installé)
-* Un appareil Android ou un émulateur
-* Compte Flutterwave (clé API)
-* Backend PHP + MySQL déployé
-
-### **Étapes**
-
-1. Cloner le projet :
-
-```sh
-git clone https://github.com/briandave-dev/Waste2Rewards.git
+└── MauiProgram.cs
 ```
 
-2. Restaurer les packages :
+## Modèle de Données
 
-```sh
+### WastePickup
+- **Id**: Identifiant unique (GUID)
+- **UserId**: Identifiant utilisateur fixe (USER001)
+- **PickupType**: Collecte normale ou programmée
+- **Area**: Zone géographique de collecte
+- **Address**: Adresse exacte de collecte
+- **Frequency**: Fréquence de collecte (une fois, hebdomadaire, bimensuelle)
+- **Date**: Date de collecte prévue
+- **WasteType**: Catégorie de déchets (Électrique, Carbone, Domestique, Plastique, Métal)
+- **Description**: Détails optionnels
+- **ImagePath**: Chemin de la photo documentation
+- **Status**: État de la demande (requested, cancelled, done)
+- **CreatedAt**: Horodatage de création de la demande
+
+## Couche de Service
+
+### IWastePickupService
+
+L'interface de service fournit les opérations suivantes :
+
+- `Create(WastePickup request)` - Soumettre une nouvelle demande de collecte
+- `GetHistory(string userId)` - Récupérer l'historique des demandes de l'utilisateur
+- `Cancel(string id)` - Annuler une demande en attente
+- `GetById(string id)` - Obtenir les détails d'une demande spécifique
+
+### Notes d'Implémentation
+
+- Utilise un stockage en mémoire avec une List statique
+- Aucune base de données ou API externe requise
+- Génération automatique d'ID lors de la création
+- Attribution du statut par défaut à "requested"
+- Historique trié par date de création (le plus récent en premier)
+
+## Flux Utilisateur
+
+1. **Écran d'Accueil** - L'utilisateur initie une demande de collecte
+2. **Sélection du Type de Collecte** - Choisir entre service normal ou programmé
+3. **Sélection de la Zone** - Sélectionner la zone géographique et fournir l'adresse exacte
+4. **Configuration de la Date** - Choisir la fréquence et la date spécifique
+5. **Finalisation** - Ajouter une photo, sélectionner le type de déchet, ajouter une description
+6. **Soumission** - Demande créée et sauvegardée
+7. **Vue Historique** - Consulter toutes les demandes passées et actuelles
+8. **Vue Détaillée** - Examiner une demande spécifique et annuler si nécessaire
+
+## Palette de Couleurs
+
+- Principal: #FF7200 (Orange)
+- Texte: #323232 (Gris Foncé)
+- Arrière-plan: #FFFFFF (Blanc)
+- Arrière-plan Secondaire: #F5F5F5 (Gris Clair)
+- Bordure: #E0E0E0 (Bordure Claire)
+- Succès: #28A745 (Vert)
+- Erreur: #DC3545 (Rouge)
+
+## Routes de Navigation
+
+L'application utilise la navigation Shell avec les routes suivantes :
+
+- `home` - Page d'accueil principale
+- `pickup_type` - Sélection du type de collecte
+- `pickup_area` - Saisie de la zone et de l'adresse
+- `pickup_date` - Sélection de la fréquence et de la date
+- `pickup_completion` - Formulaire de soumission final
+- `waste_history` - Liste de l'historique des demandes
+- `waste_detail` - Détails d'une demande individuelle
+- `profile` - Profil utilisateur (placeholder)
+
+## Instructions d'Installation
+
+### Prérequis
+
+- .NET 7.0 ou version ultérieure
+- Visual Studio 2022 ou Visual Studio Code
+- Workload .NET MAUI installé
+
+### Installation
+
+1. Cloner le dépôt
+```bash
+git clone https://github.com/yourusername/waste2rewards.git
+```
+
+2. Naviguer vers le répertoire du projet
+```bash
+cd waste2rewards
+```
+
+3. Restaurer les dépendances
+```bash
 dotnet restore
 ```
 
-3. Lancer le projet :
-
-```sh
+4. Compiler le projet
+```bash
 dotnet build
-dotnet maui run
 ```
 
----
+5. Exécuter l'application
+```bash
+dotnet run
+```
 
-## **Design et UI/UX**
+### Configuration Spécifique aux Plateformes
 
-* Palette de couleurs orientée “écologie” : vert, blanc, gris doux
-* Icônes simples et lisibles
-* Navigation via **AppShell**
-* Styles centralisés dans `/Resources/Styles/`
-* Expérience fluide et intuitive
+#### Android
+Ajouter les permissions caméra et stockage dans `AndroidManifest.xml` :
+```xml
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+```
 
----
+#### iOS
+Ajouter les clés requises dans `Info.plist` :
+```xml
+<key>NSCameraUsageDescription</key>
+<string>Cette application a besoin d'accéder à la caméra pour prendre des photos des déchets.</string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string>Cette application a besoin d'accéder aux photos.</string>
+```
 
-## **Sécurité**
+## Configuration
 
-* Aucune donnée sensible stockée en clair
-* Appels API sécurisés (HTTPS recommandé)
-* Respect du cycle MAUI pour permissions (location, camera si besoin)
+### Injection de Dépendances
 
----
+Les services et pages sont enregistrés dans `MauiProgram.cs` :
 
-## **Tests prévus**
+```csharp
+// Services
+builder.Services.AddSingleton<IWastePickupService, WastePickupService>();
 
-* Tests UI manuels
-* Tests de navigation
-* Tests de validation des formulaires
-* Tests d’intégration Flutterwave
-* Tests sur appareils Android réels (priorité)
+// Pages
+builder.Services.AddTransient<HomePage>();
+builder.Services.AddTransient<PickupTypePage>();
+// ... autres pages
+```
 
----
+## Utilisation
 
-## **Perspectives d’évolution**
+### Créer une Demande de Collecte
 
-* Ajout d'une IA pour reconnaître les déchets via photo
-* Expansion à toute la ville de Douala
-* Notifications push (Firebase)
-* Suivi en temps réel des collecteurs
-* Programme de fidélité (gamification : badges, récompenses)
+1. Appuyer sur "Waste & get Point" sur l'écran d'accueil
+2. Sélectionner votre type de collecte préféré
+3. Choisir votre zone dans la liste
+4. Saisir votre adresse exacte
+5. Sélectionner la fréquence et la date de collecte
+6. Capturer ou sélectionner une photo des déchets
+7. Choisir le type de déchet dans la liste déroulante
+8. Ajouter une description optionnelle
+9. Soumettre la demande
 
----
+### Consulter l'Historique
 
-## **Auteur**
+1. Naviguer vers l'onglet "My History"
+2. Voir les statistiques récapitulatives
+3. Appuyer sur n'importe quelle demande pour voir les détails
 
-**Brian Mountou**
-Master 2 – Génie Logiciel
+### Annuler une Demande
+
+1. Ouvrir les détails de la demande depuis l'historique
+2. Appuyer sur le bouton "Cancel Request" (disponible uniquement pour les demandes en attente)
+3. Confirmer l'annulation
+
+## Persistance des Données
+
+Actuellement, l'application utilise un stockage en mémoire. Toutes les données sont perdues lorsque l'application se ferme. Cette conception permet :
+
+- Un prototypage rapide
+- Des tests simples
+- Une démonstration facile
+- Aucune configuration de base de données requise
+
+Pour une utilisation en production, envisagez d'implémenter :
+- Base de données locale SQLite
+- Stockage cloud (Azure, Firebase)
+- Intégration API REST
+
+## Tests
+
+Le service en mémoire peut être facilement testé :
+
+```csharp
+var service = new WastePickupService();
+
+// Créer une demande de test
+var request = new WastePickup
+{
+    UserId = "USER001",
+    PickupType = "normal",
+    Area = "Shah Alam",
+    // ... autres propriétés
+};
+
+await service.Create(request);
+
+// Récupérer l'historique
+var history = await service.GetHistory("USER001");
+```
+
+## Améliorations Futures
+
+- Système d'authentification utilisateur
+- Notifications en temps réel
+- Calcul des points de récompense
+- Intégration de paiement
+- Optimisation des itinéraires pour les collecteurs
+- Tableau de bord analytique
+- Support multilingue
+- Mode hors ligne avec synchronisation
+- Notifications push
+
+## Remerciements
+
+- Développé avec .NET MAUI
+- Design UI inspiré des principes modernes du material design
+- Les icônes et images sont des placeholders à des fins de démonstration
